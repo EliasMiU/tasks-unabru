@@ -1,2 +1,2 @@
 # tasks-unabru
-Mini proyectos para el registro de tareas
+Mini proyecto para el registro de tareas
