@@ -1,0 +1,102 @@
+.header {
+  padding: 1rem 0;
+  background-color: #000;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+}
+
+.logo {
+  h1 {
+    color: #666;
+  }
+}
+
+body {
+  background-image: linear-gradient(160deg, #6400af 35%, rgba(48, 199, 255, .9));
+}
+
+.main {
+  padding-top: 1.5rem;
+  //background-image: linear-gradient(160deg, #6400af 35%, rgba(48, 199, 255, .9));
+  min-height: calc(100vh - 5.5rem);
+}
+
+.content_task {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+article[data-check="true"] {
+  background-color: rgba(72, 201, 176, 1);
+  color: #fff;
+}
+
+
+.item-tarea {
+  width: 100%;
+  background-color: rgba(30, 30, 30, 1);
+  padding: 0.7rem;
+  border-radius: 0.2rem;
+  color: rgba(200, 200, 200, 1);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    height: 1.5rem;
+  }
+}
+
+.opc-menu {
+  img {
+    width: 1.5rem;
+  }
+}
+
+/*CONTENEDOR DEL FORMULARIO*/
+.container-form {
+  transition: all 1s ease;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+
+  &.active {
+    display: block;
+    transition: all 1s ease;
+    overflow: hidden;
+    height: 12rem;
+    transition: all 1s ease;
+    opacity: 1;
+  }
+}
+
+.formNewTask {
+  button {
+    background-color: #333;
+    border: 1px solid #333;
+  }
+}
+
+
+/*GLOBALS*/
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*FOOTER*/
+.footer {
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}

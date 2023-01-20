@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./assets/js/main.js"></script>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container content-header">
+            <div class="logo">
+                <h1>Unabru Tasks</h1>
+            </div>
+            <ul class="opc-menu">
+                <li>
+                    <img class="add-task" src="./assets/icons/mas-white.svg" alt="Nueva tarea"></li>
+            </ul>
+        </div>
+    </header>
+    <section class="main">
+        <div class="container mb-3 container-form">
+            <div class="row">
+                <div class="co-12 col-md-12">
+                    <form class="formNewTask">
+                        <div class="mb-3">
+                          <input type="text" class="form-control" id="nameTask" aria-describedby="emailHelp" placeholder="Tarea">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="" id="detailsTask" placeholder="Detalles"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrar tarea</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="content_task"></div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="col-12 col-md-12 text-center"><h5>Unabru - Tasks</h5></div>
+        </div>
+    </footer>
+</body>
+</html>
