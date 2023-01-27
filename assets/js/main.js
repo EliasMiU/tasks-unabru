@@ -82,7 +82,7 @@ window.addEventListener("DOMContentLoaded", () => {
     } else {
       let newRegisterTask = {
         name: nametask.value,
-        details: detailsTask.value,
+        details: (detailsTask.value === "" ? "No se resgistro detalles" : detailsTask.value ),
         date: fecha,
         hour: hour,
         check: false
