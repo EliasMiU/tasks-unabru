@@ -35,22 +35,42 @@ article[data-check=true] {
   color: #fff;
 }
 
-.item-tarea {
+.item-task {
   width: 100%;
   background-color: rgb(30, 30, 30);
   padding: 0.7rem;
   border-radius: 0.2rem;
   color: rgb(200, 200, 200);
   margin-bottom: 0.5rem;
+  height: auto;
+  transition: all 1s ease;
+}
+.item-task .head-tasks {
   display: flex;
   justify-content: space-between;
 }
-.item-tarea img {
+.item-task .head-tasks img {
   height: 1.5rem;
+  margin-left: 0.3rem;
+  cursor: pointer;
+}
+.item-task .box-details {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 1s ease;
+  border-top: none;
+}
+.item-task.active .box-details {
+  max-height: 5rem;
+  border-top: 0.1rem solid #999;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  transition: all 1s ease;
 }
 
 .opc-menu img {
   width: 1.5rem;
+  cursor: pointer;
 }
 
 /*CONTENEDOR DEL FORMULARIO*/

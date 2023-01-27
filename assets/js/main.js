@@ -32,11 +32,22 @@ window.addEventListener("DOMContentLoaded", () => {
     contentTask.innerHTML = "";
     
     DB_Tasks.map((elemento, index) => {
-      createTask = `<article id="${index}" data-check="${elemento.check}" class="item-tarea">
-      <div class="name-task">${elemento.name}</div>
-      <div class="icon-controls">
-        <img class="item-control check" src="./assets/icons/listo-white.svg" />
-        <img class="item-control delete" src="./assets/icons/delete-white.svg" />
+      createTask = `<article id="${index}" data-check="${elemento.check}" class="item-task">
+      <div class="head-tasks">
+        <div class="name-task">${elemento.name}</div>
+        <div class="icon-controls">
+          <img class="item-control details" src="./assets/icons/detalles.svg" />
+          <img class="item-control check" src="./assets/icons/listo-white.svg" />
+          <img class="item-control delete" src="./assets/icons/delete-white.svg" />
+        </div>
+      </div>
+      <div class="details-container">
+        <div class="box-details">
+          <div class="extract">
+            <p>${elemento.details}</p>
+          </div>
+          <span class=""><span>Hora registro: </span>${elemento.hour}</span>
+        </div>
       </div>
       </article>`
   
@@ -63,7 +74,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let detailsTask = document.querySelector('#detailsTask');
     let today = new Date();
     let fecha = `${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`;
-    let hour = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+    let hour = `${today.getHours()}:${today.getMinutes()}`;
 
     if (nametask.value === "") {
       alert("Campo tarea vacio");
@@ -95,20 +106,22 @@ window.addEventListener("DOMContentLoaded", () => {
   let containsTask = document.querySelector('.content_task');
   containsTask.addEventListener('click', eventy => {
     let itemSelect = eventy.target;
-    let itemSelectId = itemSelect.parentNode.parentNode.getAttribute('id');
     let btnDelete = itemSelect.matches('.delete');
     let btnCheck = itemSelect.matches('.check')
+    let btnDetails = itemSelect.matches('.details');
 
     if(btnDelete){
       deleteItem(itemSelect);
     }else if(btnCheck){
       checkItem(itemSelect);
+    } else if(btnDetails){
+      showDetails(itemSelect);
     }
   });
   
   /**Eliminas item de la lista */
   function deleteItem(item) {
-    let idItemDelete = item.parentNode.parentNode.getAttribute('id');
+    let idItemDelete = item.closest('.item-task').getAttribute('id');
     DB_Tasks = getDbTasks();
     DB_Tasks.splice(idItemDelete, 1);
     console.log(idItemDelete);
@@ -119,13 +132,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
   /**Tarea realizada */
   function checkItem(item) {
-    let idItemCheck = item.parentNode.parentNode.getAttribute('id');
+    let idItemCheck = item.closest('.item-task').getAttribute('id');
     DB_Tasks = getDbTasks();
     DB_Tasks[idItemCheck].check = DB_Tasks[idItemCheck].check === false ? true : false;
     console.log(idItemCheck);
     setTasks(DB_Tasks);
     getTasks();
   }
+
+  /**Show Details */
+
+  function showDetails(item) {
+    let idItemShowDetails = item.closest('.item-task');
+    idItemShowDetails.classList.toggle('active');
+
+  }
+
 
   /**
    * Activar formulario
